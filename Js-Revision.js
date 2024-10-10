@@ -30,3 +30,49 @@ console.log(filterarr);
 var index = arr.indexOf(3);
 console.log(index);
 //if result is 1 then this means the value is present and if -1 thne it means this valus is not present
+
+const changeText = function () {
+  document.querySelector('h1').innerHTML = "Text Changed"
+}
+setTimeout(changeText, 3000);
+//we can use cleaTimeOut to stop setTimeout Function
+
+//now setInverVal how work ,,we will change background color of body by set interval
+
+
+//firsty generate a random color
+
+const randomColor = () => {
+  const hex = '01023456ABCDEF';
+  let color = '#';
+  for (let i = 0; i < 6; i++) {
+    color += hex[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+console.log(randomColor);
+
+let intervalId;
+const startchangecolor = () => {
+  if (!intervalId) {
+    intervalId = setInterval(() => {
+
+      document.body.style.backgroundColor = randomColor();
+    }, 2000); //change color every second
+  }
+};
+
+const stopchangecolor = () => {
+  clearInterval(intervalId); //stop change color when button clicked
+  intervalId = null;
+};
+const reset = () => {
+  clearInterval(intervalId);
+  intervalId = null;
+  document.body.style.backgroundColor = "#FFFFFF";
+}
+
+
+document.querySelector('#start').addEventListener('click', startchangecolor);
+document.querySelector('#stop').addEventListener('click', stopchangecolor);
+document.querySelector('#reset').addEventListener('click', reset);
