@@ -25,7 +25,16 @@ app.get('/', (req, res) => {
   
     res.render('Index');//we have set index.ejs at view folder as we said view engine,ejs
 });
+//another route
+// Sample user data
+const userData = {
+    username: 'Anshul Ojha',
+    age: 21,
+    email: 'anshul@example.com'
+};
+app.get('/about', (req, res) => {
+  res.render('Index', userData);
+});
 
  app.listen(4000, function () {
-  console.log('listening to port 4000')
-});
+  console.log('listening to port 4000')});
