@@ -3,16 +3,24 @@
 
 //setting up parsers for form handleing like login
 //setting up ejs for ejs pages //www.geeksforgeeks.com
-//setting up public static file(to use css,js,html in backend )
+//setting up public static file(to use css,js,html,imagescld in backend )
 
 //Ejs
 
 const express = require('express');
 const app = express();
 
+const path=require('path');
+
 //settig parses for form handlng
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+
+//setting up public static file(to use css,js,html,imagescld in backend )
+
+app.use(express.static(path.join(__dirname,'public')));// firstly an folder was created calledpublic folder
+
 
 // Set EJS as templating engine
 app.set('view engine', 'ejs');
