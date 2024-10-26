@@ -44,5 +44,20 @@ app.get('/about', (req, res) => {
   res.render('Index', userData);
 });
 
+//dynamic routing
+app.get('/users/:name',(req,res)=>{
+  //here name is dynamic so we have to put ':' before it
+  const userName=req.params.name;
+  res.send(`User name is :${userName}` );
+})
+//multiple dynam9ic route creation
+  app.get('/users/:name/:age',(req,res)=>
+  {
+    const name = req.params.name;
+    const age = req.params.age;
+ res.send(`My name is:${name} and Age is :${age}`);
+  })
+
+
  app.listen(4000, function () {
   console.log('listening to port 4000')});
