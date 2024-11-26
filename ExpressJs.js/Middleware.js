@@ -1,10 +1,17 @@
 
 //this code isfrom expreejs.com
+/*Middleware in Node. js refers to a concept where functions can be used to process incoming requests before they reach their final destination and handle outgoing responses before they are sent back to the client */
+
+//const http= require('http'); here http dont require express do this anonymously   
 const express = require('express')
 const app = express()
 
+//create server by express
+//const server =http.createServer(app);
+
+//creating middleware app.use     it has three =>(req,res,next)
 const myLogger = (req, res, next) => {
-  console.log('LOGGED')
+  console.log('middleware',req.url,req.method);
   next()
 }
 
