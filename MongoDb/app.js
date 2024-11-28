@@ -54,6 +54,21 @@ app.get('/update', async (req, res) => {
     res.status(500).send({ success: false, message: "Failed to update user" });
   }
 });
+//find any data
+app.get('/find',async(req,res)=>
+{
+
+let finding=await userModel.find({name:"Minhaz"});
+if (finding) {
+  // If a document was found and updated, respond with success
+  res.send({ success: true, message: "User exists in database", user: finding });
+} else {
+  // If no document matched the query, respond with failure
+  res.send({ success: false, message: "User not found " });
+}
+
+}
+)
 
 
 // Start server on port 3004
