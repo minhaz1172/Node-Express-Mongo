@@ -5,12 +5,14 @@ const userModel = require('./usermodel'); // Import the User model from usermode
 // Root route for creating a user
 app.get('/', async (req, res) => {
   try {
+    //multiple user input
+    let users=[
+      {name: "Minhaz", age: 23,email: "uminhaz885@gmail.com"},
+      {name:"Marof",age:18,email:"marof342@gmail.com"}
+    ];
     // Create a new user document in MongoDB (asynchronous operation)
-    let createdUser = await userModel.create({
-      name: "Minhaz",
-      age: 23,
-      email: "uminhaz885@gmail.com"
-    });
+    let createdUser = await userModel.insertMany(users);
+    ;
 
     // Log success message to console
     console.log("MongoDB document created:", createdUser);
