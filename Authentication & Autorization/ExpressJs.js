@@ -13,7 +13,7 @@ app.use(cookieParser());
 // Define a route for the root URL ("/")
 app.get("/", (req, res) => {
   // Set a cookie named "name" with the value "harsh" in the user's browser
-  res.cookie("name", "harsh");
+  res.cookie("name", "harsh");//Used to set a cookie on the client (browser) from the server.
 
   // Send a response indicating the cookie has been set
   res.send("done");
@@ -22,7 +22,9 @@ app.get("/", (req, res) => {
 // Define a route to read cookies from the incoming request
 app.get("/read", (req, res) => {
   // Log all cookies sent by the client to the server to the console
-  console.log(req.cookies);
+  console.log(req.cookies); //req.cookies    Used to read cookies sent by the client (browser) in the incoming request.
+
+
 
   // Send a response to indicate that the cookies have been read
   res.send("read page");
